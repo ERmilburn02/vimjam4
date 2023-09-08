@@ -1,0 +1,37 @@
+{
+  "name": "vimjam4",
+  "version": "1.0.0",
+  "scripts": {
+    "clean": "rimraf dist",
+    "build:prod": "webpack --mode production",
+    "build:dev": "webpack --mode development",
+    "build": "run-s clean build:prod",
+    "serve": "webpack serve --mode development"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ERmilburn02/vimjam4.git"
+  },
+  "author": "Eliza Milburn <ermilburn02@outlook.com> (https://www.ermilburn02.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ERmilburn02/vimjam4/issues"
+  },
+  "homepage": "https://github.com/ERmilburn02/vimjam4#readme",
+  "dependencies": {
+    "pixi.js": "^7.2.4"
+  },
+  "devDependencies": {
+    "copy-webpack-plugin": "^11.0.0",
+    "html-webpack-plugin": "^5.5.3",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^5.0.1",
+    "terser-webpack-plugin": "^5.3.9",
+    "ts-loader": "^9.4.4",
+    "tsconfig-paths-webpack-plugin": "^4.1.0",
+    "typescript": "^5.2.2",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "sourceMap": true,
+    "target": "ES2015",
+    "module": "ESNext",
+
+    "strict": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noUnusedParameters": true,
+    "noUnusedLocals": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
+
+    "moduleResolution": "Node10",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+
+    "skipLibCheck": true,
+
+    "paths": {
+      "@/Engine/*": ["./src/Engine/*"],
+      "@/Game/*": ["./src/Game/*"]
+    }
+  },
+  "include": ["./src/**/*"]
+}
