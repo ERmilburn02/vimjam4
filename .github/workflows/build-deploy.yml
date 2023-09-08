@@ -28,6 +28,6 @@ jobs:
         uses: jdno/setup-butler@v1
 
       - name: Push build
-        run: butler push dist ermilburn02/vimjam4:web --userversion ${{ env.GITHUB_SHA }}
+        run: butler push dist ermilburn02/vimjam4:web --userversion ${{ github.sha }}
         env:
           BUTLER_API_KEY: ${{ secrets.BUTLER_KEY }}
