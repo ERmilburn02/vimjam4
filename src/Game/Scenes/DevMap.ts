@@ -12,20 +12,7 @@ class DevMap extends Container implements IScene {
   testPath: Path = new Path({ x: 400, y: 75 });
 
   constructorWithAssets(): void {
-    this.background = new Graphics();
-    this.background.width = Manager.width;
-    this.background.height = Manager.height;
-    this.background
-      .beginFill(0xfff, 1)
-      .drawRect(0, 0, Manager.width, Manager.height)
-      .endFill();
-    this.background.position.set(0);
-    this.background.pivot.set(0);
-    this.background.eventMode = "dynamic";
-    this.background.onpointermove = (event) => {
-      this.testSprite.position.set(event.globalX, event.globalY);
-    };
-    this.addChild(this.background);
+    this.createBackground();
 
     this.testPath.constructorWithAssets();
     this.testPath.position.set(
@@ -44,6 +31,23 @@ class DevMap extends Container implements IScene {
   cleanup(): void {
     this.testSprite.cleanup();
     this.testPath.cleanup();
+  }
+
+  private createBackground(): void {
+    this.background = new Graphics();
+    this.background.width = Manager.width;
+    this.background.height = Manager.height;
+    this.background
+      .beginFill(0xfff, 1)
+      .drawRect(0, 0, Manager.width, Manager.height)
+      .endFill();
+    this.background.position.set(0);
+    this.background.pivot.set(0);
+    this.background.eventMode = "dynamic";
+    this.background.onpointermove = (event) => {
+      this.testSprite.position.set(event.globalX, event.globalY);
+    };
+    this.addChild(this.background);
   }
 }
 
