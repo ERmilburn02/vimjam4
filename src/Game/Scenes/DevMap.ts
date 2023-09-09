@@ -1,13 +1,15 @@
-import { Container, Graphics } from "pixi.js";
+import { Container, Graphics, Rectangle } from "pixi.js";
 import IScene from "@/Engine/IScene";
 import Manager from "@/Engine/Manager";
 import Enemy from "./Objects/Enemy";
+import Path from "./Objects/Path";
 
 class DevMap extends Container implements IScene {
   assetBundles: string[] = ["shapes"];
 
   background: Graphics = new Graphics();
   testSprite: Enemy = new Enemy(true);
+  testPath: Path = new Path({ x: 400, y: 75 });
 
   constructorWithAssets(): void {
     this.background = new Graphics();
@@ -25,16 +27,23 @@ class DevMap extends Container implements IScene {
     };
     this.addChild(this.background);
 
+    this.testPath.constructorWithAssets();
+    this.testPath.position.set(
+      0,
+      Manager.height / 2 - (this.testPath.hitArea as Rectangle).height / 2
+    );
+    this.addChild(this.testPath);
+
     this.testSprite.constructorWithAssets();
     this.addChild(this.testSprite);
   }
   update(framesPassed: number): void {
     this.testSprite.update(framesPassed);
+    this.testPath.update(framesPassed);
   }
   cleanup(): void {
-    this.removeChild(this.testSprite);
     this.testSprite.cleanup();
-    this.testSprite.destroy();
+    this.testPath.cleanup();
   }
 }
 
