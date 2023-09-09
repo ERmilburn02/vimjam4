@@ -9,7 +9,7 @@ class DevMap extends Container implements IScene {
 
   background: Graphics = new Graphics();
   testSprite: Enemy = new Enemy(true);
-  testPath: Path = new Path({ x: 400, y: 75 });
+  testPath: Path = new Path({ x: Manager.width, y: 75 });
 
   constructorWithAssets(): void {
     this.createBackground();
